@@ -1,8 +1,10 @@
 from flask_admin import Admin
+from flask_admin.theme import Bootstrap4Theme
 
 from . import machine, induction, firmware_update, card, bulk_card, member, label, quiz, audit
 
-admin = Admin(None, 'Hackspace Management Admin', template_mode='bootstrap4', endpoint="admin", url="/admin")
+admin = Admin(None, 'Hackspace Management Admin', theme=Bootstrap4Theme(), endpoint="admin", url="/admin")
+
 
 machine.create_views(admin)
 induction.create_views(admin)
