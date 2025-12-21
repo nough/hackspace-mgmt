@@ -5,7 +5,6 @@ from . import machine, induction, firmware_update, card, bulk_card, member, labe
 
 admin = Admin(None, 'Hackspace Management Admin', theme=Bootstrap4Theme(), endpoint="admin", url="/admin")
 
-
 machine.create_views(admin)
 induction.create_views(admin)
 firmware_update.create_views(admin)
