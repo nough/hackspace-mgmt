@@ -1,5 +1,0 @@
-build with podman build -t hackspace-mgmt:latest .
-
-run with podman run --name hs-mgmt --network host --rm localhost/hackspace-mgmt:latest
-
-access on your web browser at localhost:5000

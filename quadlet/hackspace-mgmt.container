@@ -1,0 +1,12 @@
+[Unit]
+Description=The hackspace-Mgmt container
+After=local-fs.target
+# May want to edit the After line to be e.g. after Postgres is available on other PC.
+
+[Container]
+Image=registry.bristolhackspace.org/hackspace-mgmt:latest
+# don't think we need an Exec= command
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
