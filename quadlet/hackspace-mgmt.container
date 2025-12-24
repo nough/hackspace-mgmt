@@ -6,7 +6,7 @@ After=local-fs.target
 # May want to edit the After line to be e.g. after Postgres is available on other PC.
 
 [Container]
-Image=hackspace-mgmt:latest
+Image=hackspace-mgmt_app:latest
 # don't think we need an Exec= command
 Annotation="run.oci.keep_original_groups=1"
 UserNS=keep-id
@@ -17,6 +17,7 @@ PublishPort=5000:5000  # change the first port to whatever you want it to be :).
 # DNS=
 # DNSOption=
 # DNSSearch=
+Environment=DATABASE_URI="postgresql+psycopg2://postgres:postgres@localhost:5432/hackspace"
 
 [Install]
 # Start by default on boot

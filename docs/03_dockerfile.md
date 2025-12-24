@@ -5,6 +5,13 @@ run with podman run --name hs-mgmt --network host --rm localhost/hackspace-mgmt:
 access on your web browser at localhost:5000
 
 # Quadlet
+Copy the hackspace-mgmt.container file from `./quadlet/` to one of the locations mentioned below.
+do a systemctl daemon-reload (whether as a root or as a `--user`)
+do a systemctl start  hackspace-mgmt.service (whether as a root or as a `--user`)
+`systemctl [--user] status hackspace-mgmt.service` and `podman ps -a` to determine status.
+
+### Quadlet notes
+
 https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/assembly_porting-containers-to-systemd-using-podman_building-running-and-managing-containers
 
 Create the <CTRNAME>.container unit file in one of the following directories:
