@@ -1,13 +1,22 @@
+# documentation: https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html
+
 [Unit]
 Description=The hackspace-Mgmt container
 After=local-fs.target
 # May want to edit the After line to be e.g. after Postgres is available on other PC.
 
 [Container]
-Image=registry.bristolhackspace.org/hackspace-mgmt:latest
+Image=hackspace-mgmt:latest
 # don't think we need an Exec= command
 Annotation="run.oci.keep_original_groups=1"
 UserNS=keep-id
+PublishPort=5000:5000  # change the first port to whatever you want it to be :).
+# HostName=name
+# IP=10.0.0.1
+# IPv6=2001::1
+# DNS=
+# DNSOption=
+# DNSSearch=
 
 [Install]
 # Start by default on boot
