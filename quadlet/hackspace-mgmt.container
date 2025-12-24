@@ -6,6 +6,8 @@ After=local-fs.target
 [Container]
 Image=registry.bristolhackspace.org/hackspace-mgmt:latest
 # don't think we need an Exec= command
+Annotation="run.oci.keep_original_groups=1"
+UserNS=keep-id
 
 [Install]
 # Start by default on boot
