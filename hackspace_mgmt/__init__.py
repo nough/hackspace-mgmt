@@ -9,6 +9,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY="dev",
         SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://postgres:postgres@localhost:5432/hackspace",
+        # note USERNAME AND PASSWORD NEED TO CHANGE HERE
         # SQLALCHEMY_DATABASE_URI=os.getenv('DATABASE_URL'),
         STORAGE_LOGIN_SECRET="dev",
         STORAGE_APP_URL="http://example.com"
