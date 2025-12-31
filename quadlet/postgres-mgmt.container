@@ -1,0 +1,33 @@
+# documentation: https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html
+
+[Unit]
+Description=The postgres container for sensitive data from hackspace-Mgmt
+After=local-fs.target
+# May want to edit the After line to be e.g. after Postgres is available on other PC.
+
+[Container]
+Image=postgres:18
+
+# Apparently needed?
+Annotation="run.oci.keep_original_groups=1"
+UserNS=keep-id
+
+PublishPort=5432:5432  # need to change external port (left side)
+# HostName=name
+# IP=10.0.0.1
+# IPv6=2001::1
+# DNS=
+# DNSOption=
+# DNSSearch=
+Environment=POSTGRES_HOST=localhost
+Environment=POSTGRES_USER=postgres
+Environment=POSTGRES_PASSWORD=postgres
+Environment=POSTGRES_DB=hackspace
+Volume=/srv/USER/data/postgres:/var/lib/postgresql
+Volume=/home/USER/hackspace-mgmt/migration:/docker-entrypoint-initdb.d:ro 
+
+# NETWORK_MODE: HOST  <- MAY BE NEEDED?
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
