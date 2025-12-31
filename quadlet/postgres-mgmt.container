@@ -19,10 +19,16 @@ PublishPort=5432:5432  # need to change external port (left side)
 # DNS=
 # DNSOption=
 # DNSSearch=
+
+# First try with these environment variables:
 Environment=POSTGRES_HOST=localhost
 Environment=POSTGRES_USER=postgres
 Environment=POSTGRES_PASSWORD=postgres
 Environment=POSTGRES_DB=hackspace
+
+# Then replace PASSWORD and try again:
+# Secret=POSTGRES_PASSWORD,type=env,target=POSTGRES_PASSWORD
+
 Volume=/srv/USER/data/postgres:/var/lib/postgresql
 Volume=/home/USER/hackspace-mgmt/migration:/docker-entrypoint-initdb.d:ro 
 
