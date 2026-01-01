@@ -3,7 +3,10 @@
 [Unit]
 Description=The hackspace-Mgmt container
 After=local-fs.target
-# May want to edit the After line to be e.g. after Postgres is available on other PC.
+
+# Works if both quadlet services are on the SAME PC!
+After=postgres-mgmt.container
+Requires=postgres-mgmt.container
 
 [Container]
 Image=hackspace-mgmt_app:latest
