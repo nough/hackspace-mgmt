@@ -1,15 +1,20 @@
-build with podman build -t hackspace-mgmt:latest .
+# Podman
+build with `podman build -t hackspace-mgmt:latest .`
 
-run with podman run --name hs-mgmt --network host --rm localhost/hackspace-mgmt:latest
+run with `podman run --name hs-mgmt --network host --rm localhost/hackspace-mgmt:latest`
 
-access on your web browser at localhost:5000
+access on your web browser at `localhost:5000/admin`
+
+# Podman-compose
+run `podman-compose up [--build]`
+access on your web browser at `localhost:5000/admin`
 
 # Quadlet
 Copy the hackspace-mgmt.container file from `./quadlet/` to one of the locations mentioned below.
 do a systemctl daemon-reload (whether as a root or as a `--user`)
 do a systemctl start  hackspace-mgmt.service (whether as a root or as a `--user`)
 `systemctl [--user] status hackspace-mgmt.service` and `podman ps -a` to determine status.
-
+access on your web browser at `localhost:5000/admin`
 ### Quadlet notes
 
 https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/assembly_porting-containers-to-systemd-using-podman_building-running-and-managing-containers
@@ -27,3 +32,4 @@ The two important settings for allowing the container to use the peer authentica
 Annotation="run.oci.keep_original_groups=1"
 UserNS=keep-id
 ```
+access on your web browser at `localhost:5000/admin`

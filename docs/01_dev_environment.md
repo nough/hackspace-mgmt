@@ -4,7 +4,7 @@ This is a somewhat straightforward python Flask app, backed by a Postgres databa
 
 The repository has a dev container configured which you can use if you like.
 
-Requiments:
+Requirements:
 - Python 3.9+
 - PostgreSQL 14+ - installed as part of the devcontainer if you are using it.
 - Some ability to run Postgres queries directly - pgAdmin is a good GUI option, while `psql` is a good CLI - both are bundled with Postgres
